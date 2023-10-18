@@ -1,24 +1,22 @@
+import PropTypes from 'prop-types'
 import './styles/FirstComponent.css'
 
-const string = 'Esto es un texto';
-const number = 123456;
-const array = ['Juanito', 'Pedro', 4, 5];
-const boolean = false;
-const functions = () => 'mensaje';
-const object = { nombre: 'juanito', edad: 40 }
-const date = new Date();
 
-
-function firstcomponent() {
+export const FirstComponent = ({titulo, subtitulo}) => {
     return (
         <div>
-            <h1>Variables en JSX</h1>
-            <h4>Variable tipo String:</h4> <p>{string}</p>
-            <h4>Variable tipo number:</h4> <p>{number}</p>
-            <h4>Variable tipo array:</h4> <p>{array}</p>
-            <h4>Variable tipo funcion:</h4> <p>{functions()}</p>
+            <h1> {titulo} </h1>
+            <h2> {subtitulo} </h2>
         </div>
     );
 }
 
-export default firstcomponent;
+FirstComponent.propTypes = {
+    titulo : PropTypes.string.isRequired,
+    subtitulo: PropTypes.string.isRequired
+}
+
+FirstComponent.defaultProps = {
+    titulo : 'Juanito Alcachofa',
+    subtitulo : 'Adios Mundo'
+}
